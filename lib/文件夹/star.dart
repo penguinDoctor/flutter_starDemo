@@ -10,19 +10,16 @@ class FXStarting extends StatefulWidget {
 class _FXStartingState extends State<FXStarting> {
   //评分
   double rating;
-
   //总分
   double totalRating;
-
   //  总的个数
   int count;
-
   //未选中的颜色
   Color unselectColor;
-
   //选中的颜色
   Color selectColor;
   double size;
+
   Widget unselectImage;
   Widget selectImage;
 
