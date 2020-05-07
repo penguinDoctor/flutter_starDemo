@@ -15,20 +15,19 @@ class FXHomeDashedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 200,
-        child: Flex(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          direction: this.direction,
-          children: List.generate(count, (_) {
-            return SizedBox(
-                width: dashedWidth,
-                height: dashedHeight,
-                child: DecoratedBox(decoration: BoxDecoration(color: color)));
-          }),
-        ),
+    return Container(
+      child: Flex(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        direction: this.direction,
+        children: List.generate(count, (_) {
+          return SizedBox(
+              width: dashedWidth,
+              height: dashedHeight,
+              child: DecoratedBox(decoration: BoxDecoration(color: color))
+          );
+        }),
       ),
     );
   }
 }
+

@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 //封装评分
 class FXStarting extends StatefulWidget {
+
+  double rating;
+  Color color;
+  double size;
+  FXStarting(this.rating,this.color,this.size);
   @override
-  _FXStartingState createState() => _FXStartingState(rating: 3.5);
+  _FXStartingState createState() => _FXStartingState(rating: rating,selectColor: color,size: size);
 }
 
 class _FXStartingState extends State<FXStarting> {
@@ -47,19 +52,17 @@ class _FXStartingState extends State<FXStarting> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
-        children: <Widget>[
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: buildUnselectState(),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: buildSelectState(),
-          ),
-        ],
-      ),
+    return Stack(
+      children: <Widget>[
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: buildUnselectState(),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: buildSelectState(),
+        ),
+      ],
     );
   }
 
@@ -102,7 +105,6 @@ class FXStarClip extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
     // TODO: implement getClip
-    print(clipWidth);
     return Rect.fromLTRB(0, 0, clipWidth, size.height);
   }
 
