@@ -24,9 +24,11 @@ class FXHomeMovieItem extends StatelessWidget {
           buildBottomWidget(this.movie)
         ],
       ),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: Color(0xFFDDDDDD), width: 10)),
-      ),
+      decoration: this.movie.rank != 20
+          ? BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: Color(0xFFDDDDDD), width: 10)))
+          : null,
     );
   }
 }
@@ -101,20 +103,24 @@ Widget buildContentInfoTitle(MovieItem item) {
       Icons.play_circle_outline,
       color: Colors.red,
       size: 24,
-    )),
+    ),
+  alignment: PlaceholderAlignment.middle),
     WidgetSpan(
         child: SizedBox(
       width: 5,
     )),
+//    ...item.title.runes.map((rune){
+//      return WidgetSpan(child:
+//      Text(String.fromCharCode(rune),style: TextStyle(fontSize: 18,color: Colors.black),));
+//  }).toList(),
     TextSpan(
         text: item.title, style: TextStyle(color: Colors.black, fontSize: 18)),
     WidgetSpan(
         child: SizedBox(
       width: 3,
     )),
-    TextSpan(
-        text: "(${item.playDate})",
-        style: TextStyle(fontSize: 18, color: Colors.grey))
+    WidgetSpan(child: Text("(${item.playDate})",style: TextStyle(fontSize: 18,color: Colors.grey,))),
+
   ]));
 }
 
